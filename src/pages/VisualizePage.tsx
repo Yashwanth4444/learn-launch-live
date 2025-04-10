@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { LineChart, BarChart } from "lucide-react";
+// Use proper import for Chart.js
 import { Chart } from "chart.js/auto";
 
 const sampleDataset = Array.from({ length: 100 }).map((_, i) => ({

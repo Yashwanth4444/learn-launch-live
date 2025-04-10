@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { BarChart3, LineChart, Gauge, PieChart, Info, Award } from "lucide-react";
 
+// Use proper import for Chart.js
 import { Chart, type ChartConfiguration } from "chart.js/auto";
 
 interface ModelResultsProps {
