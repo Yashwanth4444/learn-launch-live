@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -84,11 +85,41 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						opacity: '1',
+						boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)'
+					},
+					'50%': { 
+						opacity: '0.8',
+						boxShadow: '0 0 30px rgba(139, 92, 246, 0.8)'
+					}
+				},
+				'float': {
+					'0%, 100%': { 
+						transform: 'translateY(0px)'
+					},
+					'50%': { 
+						transform: 'translateY(-10px)'
+					}
+				},
+				'gradient-move': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 3s infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'gradient-move': 'gradient-move 15s ease infinite'
+			},
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'hero-pattern': 'linear-gradient(to right bottom, rgba(49, 46, 129, 0.8), rgba(76, 29, 149, 0.8))'
 			}
 		}
 	},
