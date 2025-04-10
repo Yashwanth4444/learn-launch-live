@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -6,7 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { BarChart3, LineChart, Gauge, PieChart, Info, Award } from "lucide-react";
 
 // Import Chart.js
-import { Chart, ChartConfiguration } from "chart.js/auto";
+import { Chart } from "chart.js/auto";
+// Define a more permissive type for chart configuration to handle custom chart types
+type ExtendedChartConfiguration = any;
 
 interface ModelResultsProps {
   results: any;
@@ -33,6 +34,7 @@ const ModelResults = ({ results }: ModelResultsProps) => {
       if (ctx) {
         const matrix = results.confusionMatrix;
         
+        // Using 'as ExtendedChartConfiguration' to bypass type checking for custom chart types
         chartInstances.current.confusionMatrix = new Chart(ctx, {
           type: 'matrix',
           data: {
@@ -44,7 +46,7 @@ const ModelResults = ({ results }: ModelResultsProps) => {
                 { x: 0, y: 1, v: matrix[1][0] },
                 { x: 1, y: 1, v: matrix[1][1] }
               ],
-              backgroundColor: (context) => {
+              backgroundColor: (context: any) => {
                 const value = context.dataset.data[context.dataIndex].v;
                 const max = Math.max(...matrix.flat());
                 const alpha = value / max;
@@ -76,7 +78,7 @@ const ModelResults = ({ results }: ModelResultsProps) => {
               legend: { display: false },
               tooltip: {
                 callbacks: {
-                  label: (context) => {
+                  label: (context: any) => {
                     const value = context.dataset.data[context.dataIndex].v;
                     return `Count: ${value}`;
                   }
@@ -84,7 +86,7 @@ const ModelResults = ({ results }: ModelResultsProps) => {
               }
             }
           }
-        } as ChartConfiguration);
+        } as ExtendedChartConfiguration);
       }
     }
     

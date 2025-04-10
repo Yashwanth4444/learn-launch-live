@@ -15,15 +15,17 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/dataset" element={<DatasetPage />} />
-        <Route path="/train" element={<TrainPage />} />
-        <Route path="/visualize" element={<VisualizePage />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <BrowserRouter>
+        <Toaster />
+        <Sonner />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/dataset" element={<DatasetPage />} />
+          <Route path="/train" element={<TrainPage />} />
+          <Route path="/visualize" element={<VisualizePage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );

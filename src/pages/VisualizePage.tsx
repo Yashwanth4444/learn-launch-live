@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import PageLayout from "@/components/layout/PageLayout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,6 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { LineChart, BarChart } from "lucide-react";
 // Import Chart.js
 import { Chart } from "chart.js/auto";
+// Use more permissive type for chart configuration
+type ExtendedChartConfiguration = any;
 
 const sampleDataset = Array.from({ length: 100 }).map((_, i) => ({
   id: i + 1,
@@ -123,7 +124,7 @@ const VisualizePage = () => {
               }
             }
           }
-        });
+        } as ExtendedChartConfiguration);
       }
     }
     
@@ -194,7 +195,7 @@ const VisualizePage = () => {
                 }
               }
             }
-          });
+          } as ExtendedChartConfiguration);
         } else {
           // For categorical data
           const counts = getCategoricalCounts(feature);
@@ -234,7 +235,7 @@ const VisualizePage = () => {
                 }
               }
             }
-          });
+          } as ExtendedChartConfiguration);
         }
       }
     }
@@ -290,7 +291,7 @@ const VisualizePage = () => {
               }
             }
           }
-        });
+        } as ExtendedChartConfiguration);
       }
     }
     
@@ -337,7 +338,7 @@ const VisualizePage = () => {
               }
             }
           }
-        });
+        } as ExtendedChartConfiguration);
       }
     }
     
@@ -401,7 +402,7 @@ const VisualizePage = () => {
                 }
               }
             }
-          });
+          } as ExtendedChartConfiguration);
         }
       }
     }
@@ -527,7 +528,7 @@ const VisualizePage = () => {
                 }
               }
             }
-          });
+          } as ExtendedChartConfiguration);
         }
       }
     }
